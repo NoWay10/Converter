@@ -27,19 +27,56 @@
     <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
     <meta name="viewport"
           content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <title>Converter</title>
 </head>
 <body>
 <div id="units">
-    <button class="ui-btn ui-corner-all ui-shadow"><img src="img/scale6.png">Length</button>
-    <button class="ui-btn ui-corner-all ui-shadow"><img src="img/balance.png">Weight</button>
-    <button class="ui-btn ui-corner-all ui-shadow"><img src="img/kitchen73.png">Volume</button>
-    <button class="ui-btn ui-corner-all ui-shadow"><img src="img/arrows16.png">Area</button>
-    <button class="ui-btn ui-corner-all ui-shadow"><img src="img/thermometer33.png">Temperature</button>
+    <button class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right"><img src="img/scale6.png">Length
+    </button>
+    <button class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right"><img src="img/balance.png">Weight
+    </button>
+    <button class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right"><img src="img/kitchen73.png">Volume
+    </button>
+    <button class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right"><img src="img/arrows16.png">Area
+    </button>
+    <button class="ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right"><img src="img/thermometer33.png">Temperature
+    </button>
 </div>
 
+<section id="value-section">
+    <label id="form-label" form="value-form">Heading</label>
+
+    <form id="value-form">
+        <div class="value-input">
+            <label for="text-basic" class="ui-hidden-accessible"></label>
+            <input name="text-basic" id="text-basic" placeholder="Enter Value" value="" type="text">
+        </div>
+
+        <label for="select1" class="select ui-hidden-accessible">Mini select, inline</label>
+        <select name="select-choice-mini" id="select1" class="select-choice-mini" data-mini="true" data-inline="true">
+            <option value="standard">Standard: 7 day</option>
+            <option value="rush">Rush: 3 days</option>
+            <option value="express">Express: next day</option>
+            <option value="overnight">Overnight</option>
+        </select>
+
+        <div class="value-input">
+            <label for="textinput-disabled" class="ui-hidden-accessible"></label>
+            <input disabled="disabled" name="textinput-disabled" id="textinput-disabled" placeholder="Converted Value"
+                   value="" type="text">
+        </div>
+
+        <label for="select2" class="select ui-hidden-accessible">Mini select, inline</label>
+        <select name="select-choice-mini" id="select2" class="select-choice-mini" data-mini="true" data-inline="true">
+            <option value="standard">Standard: 7 day</option>
+            <option value="rush">Rush: 3 days</option>
+            <option value="express">Express: next day</option>
+            <option value="overnight">Overnight</option>
+        </select>
+    </form>
+</section>
 
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/jquery-2.1.3.js"></script>
