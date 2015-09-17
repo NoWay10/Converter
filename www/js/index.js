@@ -78,7 +78,7 @@ var app = {
                     '<option value="miles">miles</option>' +
                     '<option value="yards">yards</option>' +
                     '</select>' +
-                    '<button id="convert-btn">Convert</button>' +
+                    '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
                 $('#value-section').append($form);
                 $('#convert-btn').click(function () {
@@ -101,13 +101,17 @@ var app = {
                         'inches': 39.3707,
                         'miles': 0.00062,
                         'yards': 1.094
-                    }
-                    var $enteredJsonValue = $oneMeter.keys($enteredUnit)[0];
-                    alert($enteredJsonValue);
-                    var $convertedJsonValue = $oneMeter.keys($convertedUnit)[0];
+                    };
+                    var $enteredJsonValue = $oneMeter[$enteredUnit];
+                    //alert($enteredJsonValue);
+                    var $convertedJsonValue = $oneMeter[$convertedUnit];
+                    //alert($convertedJsonValue);
                     var $result = $enteredValue / $enteredJsonValue * $convertedJsonValue;
-                    alert ($result);
-
+                    alert($result);
+                    $('#number-pattern-converted').attr({
+                        "disabled": "enable"
+                    });
+                    $('#number-pattern-converted').val($result);
                 });
 
 
