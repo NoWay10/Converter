@@ -67,6 +67,11 @@ h1 {
     text-align: center;
 }
 
+#units button {
+    font-family: "Times New Roman", Times, serif;
+    text-align: left;
+}
+
 #units button img {
     width: 50px;
     height: auto;
@@ -75,5 +80,40 @@ h1 {
 }
 
 #units button:last-of-type img {
-    margin-right: 0;
+    /*margin-right: 0;*/
+}
+
+#value-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#value-form h1 {
+    margin-bottom: 1em;
+}
+
+#value-form {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/*#value-form div {
+    width: 70%;
+}*/
+
+#number-pattern, #number-pattern-converted {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.value-input {
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1em;
+}
+
+#convert-btn {
+    display: block;
+    margin: 2em auto;
 }
