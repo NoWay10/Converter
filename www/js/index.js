@@ -326,7 +326,6 @@ var app = {
                     '<select name="select-choice-mini" id="select2" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
                     '<option value="c">&#176c</option>' +
                     '<option value="f">&#176f</option>' +
-                    '<option value="kelvin">kelvin</option>' +
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
@@ -341,16 +340,14 @@ var app = {
                     } else {
                         var $enteredUnit = $('#select1').val();
                         var $convertedUnit = $('#select2').val();
-                        var $oneC = {
-                            'c': 1,
-                            'f': 33.8,
-                            'kelvin': 274.15
-                        };
-                        var $enteredJsonValue = $oneC[$enteredUnit];
-                        //alert($enteredJsonValue);
-                        var $convertedJsonValue = $oneC[$convertedUnit];
-                        //alert($convertedJsonValue);
-                        var $result = $enteredValue * $enteredJsonValue / $convertedJsonValue;
+                        var $result;
+                        if ($enteredUnit == $convertedUnit) {
+                            $result = $enteredValue;
+                        } else if ($enteredUnit == 'c' && $convertedUnit == 'f') {
+                            $result = $enteredValue * 1.8 + 32;
+                        } else if ($enteredUnit == 'f' && $convertedUnit == 'c') {
+                            $result = ($enteredValue - 32) / 1.8;
+                        }
                         $('.ui-input-text').removeClass('ui-state-disabled');
                         $('#number-pattern-converted').removeAttr('disabled').val($result);
                     }
