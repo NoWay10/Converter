@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 var app = {
     // Application Constructor
     initialize: function () {
@@ -36,29 +18,13 @@ var app = {
     /*    onDeviceReady: function() {
      }*/
 
-
     onDeviceReady: this.mainFunction,
     mainFunction: function () {
-        $('.ui-btn').one('click', function () {
+        $('.ui-btn').on('click', function () {
             var $btnText = $(this).text();
+            var $form;
             if ($btnText == 'Length') {
-                /*                var $form = document.createElement('form');
-                 $form.id = 'value-form';
-                 $('#value-section').append($form);
-                 $('<h1>LENGTH</h1>').appendTo('#value-form');
-                 $('<div></div>').attr({
-                 class: 'value-input'
-                 }).appendTo('#value-form');
-                 $('<input>').attr({
-                 name: 'number',
-                 pattern: '[0-9]*',
-                 step: 'any',
-                 id: 'number-pattern',
-                 placeholder: 'Enter Value',
-                 value: '',
-                 type: 'number'
-                 }).appendTo('.value-input');*/
-                var $lengthForm = '<form id="value-form">' +
+                $form = '<form id="value-form">' +
                     '<h1>LENGTH</h1>' +
 
                     '<div class="value-input">' +
@@ -96,22 +62,13 @@ var app = {
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
-                $('#value-section').append($lengthForm).enhanceWithin();
+                $('#value-section').html($form).enhanceWithin();
                 $('#convert-btn').click(function () {
                     var $enteredValue = $('#number-pattern').val();
-                    if ($enteredValue == '') {
-                        alert('Enter Value!');
-                    }
-                    else if ($enteredValue < 0) {
+                    $enteredValue = $enteredValue.replace(/[^0-9\.]/g, '');
+                    if ($enteredValue == '' || $enteredValue < 0) {
                         alert('Enter Value Above 0!');
                     } else {
-                        /*                    $('#number-pattern').validate({
-                         rules: {
-                         "required": true,
-                         "number": true,
-                         "range": [0, Infinity]
-                         });*/
-
                         var $enteredUnit = $('#select1').val();
 
                         var $convertedUnit = $('#select2').val();
@@ -135,7 +92,7 @@ var app = {
                     }
                 });
             } else if ($btnText == 'Weight') {
-                var $weightForm = '<form id="value-form">' +
+                $form = '<form id="value-form">' +
                     '<h1>WEIGHT</h1>' +
 
                     '<div class="value-input">' +
@@ -173,7 +130,7 @@ var app = {
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
-                $('#value-section').append($weightForm).enhanceWithin();
+                $('#value-section').html($form).enhanceWithin();
                 $('#convert-btn').click(function () {
                     var $enteredValue = $('#number-pattern').val();
                     if ($enteredValue == '') {
@@ -204,7 +161,7 @@ var app = {
                     }
                 });
             } else if ($btnText == 'Volume') {
-                var $volumeForm = '<form id="value-form">' +
+                $form = '<form id="value-form">' +
                     '<h1>VOLUME</h1>' +
 
                     '<div class="value-input">' +
@@ -214,14 +171,14 @@ var app = {
 
                     '<label for="select1" class="select ui-hidden-accessible">Mini select, inline</label>' +
                     '<select name="select-choice-mini" id="select1" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
-                    '<option value="cm3">cm<sup>3</sup></option>' +
-                    '<option value="m3">m<sup>3</sup></option>' +
-                    '<option value="feet3">Feet<sup>3</sup></option>' +
+                    '<option value="cm3">cm&#179</option>' +
+                    '<option value="m3">m&#179</option>' +
+                    '<option value="feet3">Feet&#179</option>' +
                     '<option value="gallonsUK">Gallons (UK)</option>' +
                     '<option value="gallonsUSA">Gallons (USA)</option>' +
-                    '<option value="inches3">Inches<sup>3</sup></option>' +
+                    '<option value="inches3">Inches&#179</option>' +
                     '<option value="litres">Litres</option>' +
-                    '<option value="yards3">Yards<sup>3</sup></option>' +
+                    '<option value="yards3">Yards&#179</option>' +
                     '</select>' +
 
                     '<div class="value-input">' +
@@ -231,18 +188,18 @@ var app = {
 
                     '<label for="select2" class="select ui-hidden-accessible">Mini select, inline</label>' +
                     '<select name="select-choice-mini" id="select2" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
-                    '<option value="cm3">cm<sup>3</sup></option>' +
-                    '<option value="m3">m<sup>3</sup></option>' +
-                    '<option value="feet3">Feet<sup>3</sup></option>' +
+                    '<option value="cm3">cm&#179</option>' +
+                    '<option value="m3">m&#179</option>' +
+                    '<option value="feet3">Feet&#179</option>' +
                     '<option value="gallonsUK">Gallons (UK)</option>' +
                     '<option value="gallonsUSA">Gallons (USA)</option>' +
-                    '<option value="inches3">Inches<sup>3</sup></option>' +
+                    '<option value="inches3">Inches&#179</option>' +
                     '<option value="litres">Litres</option>' +
-                    '<option value="yards3">Yards<sup>3</sup></option>' +
+                    '<option value="yards3">Yards&#179</option>' +
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
-                $('#value-section').append($volumeForm).enhanceWithin();
+                $('#value-section').html($form).enhanceWithin();
                 $('#convert-btn').click(function () {
                     var $enteredValue = $('#number-pattern').val();
                     if ($enteredValue == '') {
@@ -273,7 +230,7 @@ var app = {
                     }
                 });
             } else if ($btnText == 'Area') {
-                var $areaForm = '<form id="value-form">' +
+                $form = '<form id="value-form">' +
                     '<h1>AREA</h1>' +
 
                     '<div class="value-input">' +
@@ -283,14 +240,14 @@ var app = {
 
                     '<label for="select1" class="select ui-hidden-accessible">Mini select, inline</label>' +
                     '<select name="select-choice-mini" id="select1" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
-                    '<option value="cm2">cm<sup>2</sup></option>' +
-                    '<option value="m2">m<sup>2</sup></option>' +
+                    '<option value="cm2">cm&#178</option>' +
+                    '<option value="m2">m&#178</option>' +
                     '<option value="acres">Acres</option>' +
-                    '<option value="feet2">Feet<sup>2</sup></option>' +
+                    '<option value="feet2">Feet&#178</option>' +
                     '<option value="hectares">Hectares</option>' +
-                    '<option value="inches2">Inches<sup>2</sup></option>' +
-                    '<option value="miles">miles<sup>2</sup></option>' +
-                    '<option value="yards2">Yards<sup>2</sup></option>' +
+                    '<option value="inches2">Inches&#178</option>' +
+                    '<option value="miles">miles&#178</option>' +
+                    '<option value="yards2">Yards&#178</option>' +
                     '<option value="ares">Ares</option>' +
                     '</select>' +
 
@@ -301,19 +258,19 @@ var app = {
 
                     '<label for="select2" class="select ui-hidden-accessible">Mini select, inline</label>' +
                     '<select name="select-choice-mini" id="select2" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
-                    '<option value="cm2">cm<sup>2</sup></option>' +
-                    '<option value="m2">m<sup>2</sup></option>' +
+                    '<option value="cm2">cm&#178</option>' +
+                    '<option value="m2">m&#178</option>' +
                     '<option value="acres">Acres</option>' +
-                    '<option value="feet2">Feet<sup>2</sup></option>' +
+                    '<option value="feet2">Feet&#178</option>' +
                     '<option value="hectares">Hectares</option>' +
-                    '<option value="inches2">Inches<sup>2</sup></option>' +
-                    '<option value="miles">miles<sup>2</sup></option>' +
-                    '<option value="yards2">Yards<sup>2</sup></option>' +
+                    '<option value="inches2">Inches&#178</option>' +
+                    '<option value="miles">miles&#178</option>' +
+                    '<option value="yards2">Yards&#178</option>' +
                     '<option value="ares">Ares</option>' +
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
-                $('#value-section').append($areaForm).enhanceWithin();
+                $('#value-section').html($form).enhanceWithin();
                 $('#convert-btn').click(function () {
                     var $enteredValue = $('#number-pattern').val();
                     if ($enteredValue == '') {
@@ -345,8 +302,8 @@ var app = {
                     }
                 });
             } else if ($btnText == 'Temperature') {
-                var $temperatureForm = '<form id="value-form">' +
-                    '<h1>AREA</h1>' +
+                $form = '<form id="value-form">' +
+                    '<h1>TEMPERATURE</h1>' +
 
                     '<div class="value-input">' +
                     '<label for="number-pattern" class="ui-hidden-accessible"></label>' +
@@ -371,7 +328,7 @@ var app = {
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
-                $('#value-section').append($temperatureForm).enhanceWithin();
+                $('#value-section').html($form).enhanceWithin();
                 $('#convert-btn').click(function () {
                     var $enteredValue = $('#number-pattern').val();
                     if ($enteredValue == '') {
