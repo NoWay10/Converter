@@ -38,10 +38,10 @@ var app = {
                     '<option value="cm">cm</option>' +
                     '<option value="m">m</option>' +
                     '<option value="km">km</option>' +
-                    '<option value="feet">Feet</option>' +
-                    '<option value="inches">Inches</option>' +
-                    '<option value="miles">Miles</option>' +
-                    '<option value="yards">Yards</option>' +
+                    '<option value="feet">feet</option>' +
+                    '<option value="inches">inches</option>' +
+                    '<option value="miles">miles</option>' +
+                    '<option value="yards">yards</option>' +
                     '</select>' +
 
                     '<div class="value-input">' +
@@ -55,18 +55,20 @@ var app = {
                     '<option value="cm">cm</option>' +
                     '<option value="m">m</option>' +
                     '<option value="km">km</option>' +
-                    '<option value="feet">Feet</option>' +
-                    '<option value="inches">Inches</option>' +
-                    '<option value="miles">Miles</option>' +
-                    '<option value="yards">Yards</option>' +
+                    '<option value="feet">feet</option>' +
+                    '<option value="inches">inches</option>' +
+                    '<option value="miles">miles</option>' +
+                    '<option value="yards">yards</option>' +
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
                 $('#value-section').html($form).enhanceWithin();
                 $('#convert-btn').click(function () {
                     var $enteredValue = $('#number-pattern').val();
-                    $enteredValue = $enteredValue.replace(/[^0-9\.]/g, '');
-                    if ($enteredValue == '' || $enteredValue < 0) {
+                    if ($enteredValue == '') {
+                        alert('Enter Value!');
+                    }
+                    else if ($enteredValue <= 0) {
                         alert('Enter Value Above 0!');
                     } else {
                         var $enteredUnit = $('#select1').val();
@@ -105,11 +107,11 @@ var app = {
                     '<option value="mg">mg</option>' +
                     '<option value="g">g</option>' +
                     '<option value="kg">kg</option>' +
-                    '<option value="tonne">Tonne</option>' +
-                    '<option value="grains">Grains</option>' +
-                    '<option value="ounces">Ounces</option>' +
-                    '<option value="pounds">Pounds</option>' +
-                    '<option value="stones">Stones</option>' +
+                    '<option value="tonne">tonne</option>' +
+                    '<option value="grains">grains</option>' +
+                    '<option value="ounces">ounces</option>' +
+                    '<option value="pounds">pounds</option>' +
+                    '<option value="stones">stones</option>' +
                     '</select>' +
 
                     '<div class="value-input">' +
@@ -122,11 +124,11 @@ var app = {
                     '<option value="mg">mg</option>' +
                     '<option value="g">g</option>' +
                     '<option value="kg">kg</option>' +
-                    '<option value="tonne">Tonne</option>' +
-                    '<option value="grains">Grains</option>' +
-                    '<option value="ounces">Ounces</option>' +
-                    '<option value="pounds">Pounds</option>' +
-                    '<option value="stones">Stones</option>' +
+                    '<option value="tonne">tonne</option>' +
+                    '<option value="grains">grains</option>' +
+                    '<option value="ounces">ounces</option>' +
+                    '<option value="pounds">pounds</option>' +
+                    '<option value="stones">stones</option>' +
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
@@ -136,7 +138,7 @@ var app = {
                     if ($enteredValue == '') {
                         alert('Enter Value!');
                     }
-                    else if ($enteredValue < 0) {
+                    else if ($enteredValue <= 0) {
                         alert('Enter Value Above 0!');
                     } else {
                         var $enteredUnit = $('#select1').val();
@@ -173,12 +175,12 @@ var app = {
                     '<select name="select-choice-mini" id="select1" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
                     '<option value="cm3">cm&#179</option>' +
                     '<option value="m3">m&#179</option>' +
-                    '<option value="feet3">Feet&#179</option>' +
-                    '<option value="gallonsUK">Gallons (UK)</option>' +
-                    '<option value="gallonsUSA">Gallons (USA)</option>' +
-                    '<option value="inches3">Inches&#179</option>' +
-                    '<option value="litres">Litres</option>' +
-                    '<option value="yards3">Yards&#179</option>' +
+                    '<option value="feet3">feet&#179</option>' +
+                    '<option value="gallonsUK">gallons (UK)</option>' +
+                    '<option value="gallonsUSA">gallons (USA)</option>' +
+                    '<option value="inches3">inches&#179</option>' +
+                    '<option value="litres">litres</option>' +
+                    '<option value="yards3">yards&#179</option>' +
                     '</select>' +
 
                     '<div class="value-input">' +
@@ -190,12 +192,12 @@ var app = {
                     '<select name="select-choice-mini" id="select2" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
                     '<option value="cm3">cm&#179</option>' +
                     '<option value="m3">m&#179</option>' +
-                    '<option value="feet3">Feet&#179</option>' +
-                    '<option value="gallonsUK">Gallons (UK)</option>' +
-                    '<option value="gallonsUSA">Gallons (USA)</option>' +
-                    '<option value="inches3">Inches&#179</option>' +
-                    '<option value="litres">Litres</option>' +
-                    '<option value="yards3">Yards&#179</option>' +
+                    '<option value="feet3">feet&#179</option>' +
+                    '<option value="gallonsUK">gallons (UK)</option>' +
+                    '<option value="gallonsUSA">gallons (USA)</option>' +
+                    '<option value="inches3">inches&#179</option>' +
+                    '<option value="litres">litres</option>' +
+                    '<option value="yards3">yards&#179</option>' +
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
@@ -205,7 +207,7 @@ var app = {
                     if ($enteredValue == '') {
                         alert('Enter Value!');
                     }
-                    else if ($enteredValue < 0) {
+                    else if ($enteredValue <= 0) {
                         alert('Enter Value Above 0!');
                     } else {
                         var $enteredUnit = $('#select1').val();
@@ -242,13 +244,13 @@ var app = {
                     '<select name="select-choice-mini" id="select1" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
                     '<option value="cm2">cm&#178</option>' +
                     '<option value="m2">m&#178</option>' +
-                    '<option value="acres">Acres</option>' +
-                    '<option value="feet2">Feet&#178</option>' +
-                    '<option value="hectares">Hectares</option>' +
-                    '<option value="inches2">Inches&#178</option>' +
+                    '<option value="acres">acres</option>' +
+                    '<option value="feet2">feet&#178</option>' +
+                    '<option value="hectares">hectares</option>' +
+                    '<option value="inches2">inches&#178</option>' +
                     '<option value="miles">miles&#178</option>' +
-                    '<option value="yards2">Yards&#178</option>' +
-                    '<option value="ares">Ares</option>' +
+                    '<option value="yards2">yards&#178</option>' +
+                    '<option value="ares">ares</option>' +
                     '</select>' +
 
                     '<div class="value-input">' +
@@ -260,13 +262,13 @@ var app = {
                     '<select name="select-choice-mini" id="select2" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
                     '<option value="cm2">cm&#178</option>' +
                     '<option value="m2">m&#178</option>' +
-                    '<option value="acres">Acres</option>' +
-                    '<option value="feet2">Feet&#178</option>' +
-                    '<option value="hectares">Hectares</option>' +
-                    '<option value="inches2">Inches&#178</option>' +
+                    '<option value="acres">acres</option>' +
+                    '<option value="feet2">feet&#178</option>' +
+                    '<option value="hectares">hectares</option>' +
+                    '<option value="inches2">inches&#178</option>' +
                     '<option value="miles">miles&#178</option>' +
-                    '<option value="yards2">Yards&#178</option>' +
-                    '<option value="ares">Ares</option>' +
+                    '<option value="yards2">yards&#178</option>' +
+                    '<option value="ares">ares</option>' +
                     '</select>' +
                     '<input type="button" value="Convert" id="convert-btn">' +
                     '</form>';
@@ -276,7 +278,7 @@ var app = {
                     if ($enteredValue == '') {
                         alert('Enter Value!');
                     }
-                    else if ($enteredValue < 0) {
+                    else if ($enteredValue <= 0) {
                         alert('Enter Value Above 0!');
                     } else {
                         var $enteredUnit = $('#select1').val();
@@ -314,7 +316,6 @@ var app = {
                     '<select name="select-choice-mini" id="select1" class="select-choice-mini" data-mini="true" data-inline = "true" > ' +
                     '<option value="c">&#176c</option>' +
                     '<option value="f">&#176f</option>' +
-                    '<option value="kelvin">kelvin</option>' +
                     '</select>' +
 
                     '<div class="value-input">' +
@@ -335,7 +336,7 @@ var app = {
                     if ($enteredValue == '') {
                         alert('Enter Value!');
                     }
-                    else if ($enteredValue < 0) {
+                    else if ($enteredValue <= 0) {
                         alert('Enter Value Above 0!');
                     } else {
                         var $enteredUnit = $('#select1').val();
